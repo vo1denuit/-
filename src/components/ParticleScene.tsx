@@ -40,7 +40,7 @@ const PARTICLE_CONTENTS = [
     },
     {
         title: "디지털 아트",
-        view: "배점이",
+        viewer: "배점이",
         description: "팔을 양 옆으로 벌려 새처럼 나는 손짓을 하면 날 수 있었다. 체공 높이가 그리 높진 않았지만 노력하면 5층 높이의 건물 정도는 뛰어넘을 수 있었다. 기분이 너무 좋았다. 날 수 있다는 사실 자체로도 좋았지만, 지구상에서 나만 가진 능력이라는 점에서 오는 우월감 역시 이에 크게 작용했다. 기억 나는 건 이게 다다.",
         color: "#AFC1C4",
     },
@@ -95,13 +95,13 @@ const PARTICLE_CONTENTS = [
         title: "월행",
         viewer: "임동하",
         description: "제가 광덕공원에서 빗자루 타고 날아가는꿈을 꿨는데요 나무위에 멈추려고 했는데 안멈춰서 달까지 갔습니다",
-        color: "##180a1e",
+        color: "#180a1e",
     },
         {
         title: "악어 아저씨 그렇게 배가 고프시다면 저를 드세요",
         viewer: "김주성",
         description: "내가 사랑하는 사촌동생이 악어 아저씨에게 먹혀 신체의 반이 사라진 것을 목격한 꿈",
-        color: "##1e0a1c",
+        color: "#1e0a1c",
     },
     {
         title: "진드기병?",
@@ -204,7 +204,7 @@ export function ParticleScene({ onParticleClick, onZoomChange, initialZoom }: Pa
         // 줌 레벨에 따라 직교 카메라 줌 조정
         // 줌인할수록 줌 값이 작아지고, 줌아웃할수록 줌 값이 커짐
         const newZoom = MAX_ZOOM - newZoomLevel * (MAX_ZOOM - MIN_ZOOM)
-        setCurrentZoom(newZoom)
+        //setCurrentZoom(newZoom)
 
         // 부모 컴포넌트에 줌 변경 알림
         onZoomChange(newZoom)
@@ -275,20 +275,22 @@ interface ParticleProps {
 }
 
 function Particle({
-                      //id,
-                      //initialX,
-                      //initialY,
-                      //initialZ,
-                      //velocityX,
-                      //velocityY,
-                      //velocityZ,
-                      //color,
-                      //title,
-                      //description,
-                      //zoomLevel,
-                      //prevZoomLevel,
-                      //onClick,
-                  //}: ParticleProps) {
+    id,
+    initialX,
+    initialY,
+    initialZ,
+    velocityX,
+    velocityY,
+    velocityZ,
+    color,
+    title,
+    description,
+    zoomLevel,
+    //prevZoomLevel,
+    onClick,
+}: ParticleProps) {
+
+
     const meshRef = useRef<THREE.Mesh>(null)
     const [flowSpeed] = useState(() => 0.005 + Math.random() * 0.015)
 
@@ -296,7 +298,7 @@ function Particle({
     // 초기 위치와 속도를 기본 타입으로 관리
     const [posX, setPosX] = useState(initialX)
     const [posY, setPosY] = useState(initialY)
-    const [posZ, setPosZ] = useState(initialZ)
+    //const [posZ, setPosZ] = useState(initialZ)
     const [velX, setVelX] = useState(velocityX)
     const [velY, setVelY] = useState(velocityY)
     // const [velZ, setVelZ] = useState(velocityZ)
