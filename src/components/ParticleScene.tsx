@@ -148,7 +148,7 @@ interface ParticleSceneProps {
 export function ParticleScene({ onParticleClick, onZoomChange, initialZoom }: ParticleSceneProps) {
     const { camera } = useThree()
     const [zoomLevel, setZoomLevel] = useState(0)
-    const [currentZoom, setCurrentZoom] = useState(initialZoom)
+    //const [currentZoom, setCurrentZoom] = useState(initialZoom)
     const { wheelDelta } = useWheel()
     const particlesRef = useRef<THREE.Group>(null)
     const prevZoomLevelRef = useRef(zoomLevel) // 이전 줌 레벨 저장용 ref
@@ -181,7 +181,7 @@ export function ParticleScene({ onParticleClick, onZoomChange, initialZoom }: Pa
                 velocityY: vy,
                 velocityZ: vz,
                 title: content.title,
-                viewer: content.viewer,
+                viewer: content.viewer ?? "",
                 description: content.description,
                 color: content.color,
             })
@@ -275,20 +275,20 @@ interface ParticleProps {
 }
 
 function Particle({
-                      id,
-                      initialX,
-                      initialY,
-                      initialZ,
-                      velocityX,
-                      velocityY,
-                      velocityZ,
-                      color,
-                      title,
-                      description,
-                      zoomLevel,
-                      prevZoomLevel,
-                      onClick,
-                  }: ParticleProps) {
+                      //id,
+                      //initialX,
+                      //initialY,
+                      //initialZ,
+                      //velocityX,
+                      //velocityY,
+                      //velocityZ,
+                      //color,
+                      //title,
+                      //description,
+                      //zoomLevel,
+                      //prevZoomLevel,
+                      //onClick,
+                  //}: ParticleProps) {
     const meshRef = useRef<THREE.Mesh>(null)
     const [flowSpeed] = useState(() => 0.005 + Math.random() * 0.015)
 
