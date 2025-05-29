@@ -1,3 +1,5 @@
+// ParticleScene.tsx
+
 "use client"
 
 import { useMemo, useRef, useState, useEffect } from "react"
@@ -275,16 +277,16 @@ interface ParticleProps {
 }
 
 function Particle({
-    id,
+    // id,
     initialX,
     initialY,
     initialZ,
     velocityX,
     velocityY,
-    velocityZ,
+    // velocityZ,
     color,
-    title,
-    description,
+    // title,
+    // description,
     zoomLevel,
     //prevZoomLevel,
     onClick,
@@ -354,7 +356,8 @@ function Particle({
 
     setPosX(newPosX)
     setPosY(newPosY)
-    meshRef.current.position.set(newPosX, newPosY, posZ)
+    // meshRef.current.position.set(newPosX, newPosY, posZ)
+    meshRef.current.position.set(newPosX, newPosY, 0)
 
     const scale = hovered ? 1.2 : 1
     meshRef.current.scale.set(scale, scale, scale)
