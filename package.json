@@ -12,9 +12,12 @@
   "dependencies": {
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
+    "@reduxjs/toolkit": "^2.8.2",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
     "three": "^0.176.0"
   },
   "devDependencies": {
