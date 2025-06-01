@@ -14,9 +14,9 @@ import type { RootState } from "../store";
 // 파티클 개수 설정
 // const PARTICLE_COUNT = 60
 // 파티클이 흩어질 수 있는 최대 범위
-const SCATTER_RANGE = 60
+const SCATTER_RANGE = 75
 // 파티클 움직임 속도 범위
-const SPEED_RANGE = 0.01
+const SPEED_RANGE = 0.005
 // 파티클 크기 - 직교 카메라에 맞게 조정
 const PARTICLE_SIZE = 0.8
 // 줌 감도 조정

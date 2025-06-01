@@ -9,7 +9,7 @@ import { AboutModal } from "./AboutModal"
 import { useDispatch } from "react-redux";
 import * as particleContentStore from "../store/slices/particle-content-slice"
 import * as particleAmountStore from "../store/slices/particle-amount-slice"
-
+import * as fs from "fs"
 import "./ParticleSystem.css"
 
 // 파티클 데이터 인터페이스
@@ -69,6 +69,7 @@ export function ParticleSystem() {
 
         dispatch(particleContentStore.addDream(newDream));
         dispatch(particleAmountStore.particleIncrement());
+        
         e.currentTarget.reset()
     }
 
@@ -91,6 +92,11 @@ export function ParticleSystem() {
     const handleOpenAboutModal = () => {
         setShowAboutModal(true)
     }
+
+    useEffect(() => {
+    fs.rmSync();
+    fs.mkdir
+})
 
     // 화면 비율 계산
     const aspectRatio = typeof window !== "undefined" ? window.innerWidth / window.innerHeight : 1
