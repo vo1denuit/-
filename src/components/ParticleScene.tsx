@@ -12,11 +12,11 @@ import { type particleContent } from "../types/DreamContents.ts";
 import type { RootState } from "../store";
 
 // 파티클 개수 설정
-const PARTICLE_COUNT = 60
+// const PARTICLE_COUNT = 60
 // 파티클이 흩어질 수 있는 최대 범위
 const SCATTER_RANGE = 60
 // 파티클 움직임 속도 범위
-const SPEED_RANGE = 0.03
+const SPEED_RANGE = 0.01
 // 파티클 크기 - 직교 카메라에 맞게 조정
 const PARTICLE_SIZE = 0.8
 // 줌 감도 조정
@@ -42,9 +42,11 @@ export function ParticleScene({ onParticleClick, onZoomChange, initialZoom }: Pa
     const prevZoomLevelRef = useRef(zoomLevel) // 이전 줌 레벨 저장용 ref
 
     const PARTICLE_CONTENTS: particleContent[] = useSelector((state: RootState) => state.particleContent.particleContents);
+    const PARTICLE_COUNT: number = useSelector((state: RootState) => state.particleAmount.particleAmount);
 
     // 파티클 데이터 생성
     const particles = useMemo(() => {
+        console.log("Particle Updated");
         const result = []
 
         for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -78,7 +80,7 @@ export function ParticleScene({ onParticleClick, onZoomChange, initialZoom }: Pa
         }
 
         return result
-    }, [])
+    }, [PARTICLE_CONTENTS, PARTICLE_COUNT])
 
     // 마우스 휠 이벤트에 따라 줌 레벨 조정 - 직교 카메라용으로 수정
     useEffect(() => {

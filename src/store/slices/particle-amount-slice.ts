@@ -12,13 +12,13 @@ const gameInstallerSlice = createSlice({
     name: 'gameInstaller',
     initialState,
     reducers: {
-        addDream: (state) => {
+        particleIncrement: (state) => {
             state.particleAmount += 1;
         },
     },
 });
 
-export const { addDream } =
+export const { particleIncrement } =
     gameInstallerSlice.actions;
 
 export default gameInstallerSlice.reducer;
